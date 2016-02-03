@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	t1 := chess.NewChessTable3Minutes(1)
+	t1 := chess.NewChessTableWith3MinsTurnTime(1)
 	t1.Player1 = &core.Player{Name: "Jan"}
 	t1.Player2 = &core.Player{Name: "Stefan"}
 
