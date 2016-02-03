@@ -6,12 +6,17 @@ import (
 	"log"
 	"github.com/coreos/etcd/client"
 	"github.com/coreos/etcd/Godeps/_workspace/src/golang.org/x/net/context"
-	"github.com/matiwinnetou/boarder/utils"
+	"github.com/matiwinnetou/boarder/chess"
+"github.com/matiwinnetou/boarder/core"
 )
 
 func main() {
-	t1 := utils.NewTable("table1")
-	fmt.Printf("%v", t1)
+	t1 := chess.NewChessTable(1)
+	t1.Player1 = &core.Player{Name: "Jan"}
+	t1.Player2 = &core.Player{Name: "Stefan"}
+
+	fmt.Printf("%d\n", t1.TableNo)
+	fmt.Printf("%d\n", t1.PlayerCount())
 
 	cfg := client.Config{
 		Endpoints:               []string{"http://pi:2379"},
