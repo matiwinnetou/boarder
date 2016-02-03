@@ -2,6 +2,7 @@ package chess
 
 import (
 	"github.com/matiwinnetou/boarder/core"
+	"time"
 )
 
 type ChessTable struct {
@@ -10,8 +11,16 @@ type ChessTable struct {
 	Player2 *core.Player
 }
 
-func NewChessTable(tableNo int32) *ChessTable {
-	table := &core.Table{TableNo: tableNo}
+func NewChessTable(tableNo int32, turnInSeconds time.Duration) *ChessTable {
+	turnDuration := time.Minute * turnInSeconds
+	table := &core.Table{TableNo: tableNo, TurnDuration: turnDuration}
+
+	return &ChessTable{table, nil, nil}
+}
+
+func NewChessTable3Minutes(tableNo int32) *ChessTable {
+	turnDuration := time.Minute * 3
+	table := &core.Table{TableNo: tableNo, TurnDuration: turnDuration}
 
 	return &ChessTable{table, nil, nil}
 }

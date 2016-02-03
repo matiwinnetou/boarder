@@ -8,7 +8,7 @@ import (
 	"golang.org/x/net/context"
 )
 
-func init() {
+func initoo() {
 	cfg := client.Config{
 		Endpoints: []string{"http://pi:2379"},
 		Transport: client.DefaultTransport,
