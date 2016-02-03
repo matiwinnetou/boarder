@@ -17,10 +17,10 @@ func NewChessTable(tableNo int32) *ChessTable {
 }
 
 func (ct *ChessTable) PlayerCount() int {
-	if (ct.Player1 != nil && ct.Player2 != nil) {
+	if ct.Player1 != nil && ct.Player2 != nil {
 		return 2
 	}
-	if (ct.Player1 != nil || ct.Player2 != nil) {
+	if ct.Player1 != nil || ct.Player2 != nil {
 		return 1
 	}
 
