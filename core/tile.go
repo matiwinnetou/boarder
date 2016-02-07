@@ -5,10 +5,10 @@ const (
 )
 
 type Tile struct {
-	Board *Board
+	Board  *Board
 	Figure int
 }
 
 func (ct *Tile) IsEmpty() bool {
-	return ct.Figure == 0;
+	return ct.Figure == 0
 }

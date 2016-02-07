@@ -8,26 +8,32 @@ type ChessBoard struct {
 	*core.Board
 }
 
-func NewChessBoard(ct *ChessTable) *ChessBoard {
-	l := 8
+func NewChessBoard() *ChessBoard {
+	h := 8
 	w := 8
 	tiles := make([][]*core.Tile, 0)
 
-	board := &core.Board{Table: ct.Table, Tiles: tiles, Length: l, Width: w}
-    //board.Tiles = initEmptyTiles(board, l, w)
+	board := &core.Board{Tiles: tiles, Height: h, Width: w}
+	board.Tiles = initEmptyTiles(h, w)
 
 	return &ChessBoard{board}
 }
 
-//func initEmptyTiles(b *core.Board, l, w int) []*core.Tile {
-//	tiles := make([]*core.Tile, l * w)
-//
-//	for i := 0; i < l; i++ {
-//		for j := 0; j< w; j++ {
-//			t := NewTile(b, core.EMPTY_TILE)
-//			tiles[i][j] = t
-//		}
-//	}
-//
-//	return tiles
-//}
+func NewChessBoardWithTable(ct *ChessTable) *ChessBoard {
+	board := NewChessBoard()
+	board.Table = ct.Table
+
+	return board
+}
+
+func initEmptyTiles(h, w int) [][]*core.Tile {
+	tiles := make([][]*core.Tile, h)
+
+	for i := range tiles {
+		row := make([]*core.Tile, w)
+		row[i] = NewChessTile(core.EMPTY_TILE).Tile
+		tiles = append(tiles, row)
+	}
+
+	return tiles
+}

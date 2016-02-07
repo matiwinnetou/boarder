@@ -17,8 +17,15 @@ type ChessTile struct {
 	*core.Tile
 }
 
-func NewTile(b *core.Board, figure int) *ChessTile {
-	t := &core.Tile{Board: b, Figure: figure}
+func NewChessTile(figure int) *ChessTile {
+	t := &core.Tile{Figure: figure}
 
 	return &ChessTile{Tile: t}
+}
+
+func NewChessTileWithBoard(b *core.Board, figure int) *ChessTile {
+	tile := NewChessTile(figure)
+	tile.Board = b
+
+	return tile
 }
