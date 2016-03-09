@@ -5,7 +5,6 @@ const (
 )
 
 type Tile struct {
-	Board  *Board
 	Figure int
 }
 

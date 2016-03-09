@@ -1,7 +1,6 @@
 package core
 
 type Board struct {
-	Table  *Table
 	Tiles  [][]*Tile
 	Height int
 	Width  int

@@ -11,21 +11,19 @@ const (
 	QUEEN_TILE
 	KNIGHT_TILE
 	BISHOP_TILE
+
+	NO_COLOR
+	BLACK_COLOR
+	WHITE_COLOR
 )
 
 type ChessTile struct {
 	*core.Tile
+	Color int
 }
 
-func NewChessTile(figure int) *ChessTile {
+func NewChessTile(figure, color int) *ChessTile {
 	t := &core.Tile{Figure: figure}
 
-	return &ChessTile{Tile: t}
-}
-
-func NewChessTileWithBoard(b *core.Board, figure int) *ChessTile {
-	tile := NewChessTile(figure)
-	tile.Board = b
-
-	return tile
+	return &ChessTile{Tile: t, Color: color}
 }
