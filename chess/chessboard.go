@@ -14,10 +14,13 @@ func NewChessBoard() *ChessBoard {
 	tiles := make([][]*core.Tile, 0)
 
 	board := &core.Board{Tiles: tiles, Height: h, Width: w}
-	board.Tiles = initEmptyTiles(board)
-	placePawns(board, board.Tiles)
+	//board.Tiles = initEmptyTiles(board)
+	//placePawns(board, board.Tiles)
 
-	return &ChessBoard{board}
+	chessBoard := &ChessBoard{board}
+	board.Tiles = initEmptyTiles(chessBoard)
+
+	return chessBoard;
 }
 
 func initEmptyTiles(b *ChessBoard) [][]*ChessTile {
@@ -32,9 +35,9 @@ func initEmptyTiles(b *ChessBoard) [][]*ChessTile {
 	return tiles
 }
 
-func placePawns(b *core.Board, tiles [][]*ChessTile)  {
-	for i := 0; i <= b.Width; i++ {
-		tiles[1][i] = NewChessTile(PAWN_TILE, WHITE_COLOR)
-		tiles[b.Height - 2][i] = NewChessTile(PAWN_TILE, BLACK_COLOR)
-	}
-}
+//func placePawns(b *core.Board, tiles [][]*ChessTile)  {
+//	for i := 0; i <= b.Width; i++ {
+//		tiles[1][i] = NewChessTile(PAWN_TILE, WHITE_COLOR)
+//		tiles[b.Height - 2][i] = NewChessTile(PAWN_TILE, BLACK_COLOR)
+//	}
+//}
